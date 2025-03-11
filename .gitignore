@@ -8,5 +8,4 @@ local.yml
 .vscode
 bin
 obj
-java-*/target
 node_modules

@@ -1,0 +1,7 @@
+applications:
+- name: test-r
+  buildpack: r_buildpack
+  random-route: true
+  health-check-type: process
+  memory: 256M
+  command: R -f helloworld.r

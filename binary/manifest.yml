@@ -1,0 +1,7 @@
+applications:
+- name: test-binary
+  buildpack: binary_buildpack
+  random-route: true
+  health-check-type: process
+  memory: 128M
+  command: while true; do echo "test ..."; sleep 60; done

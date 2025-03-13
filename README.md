@@ -14,7 +14,8 @@ This repository contains minimal "Hello World" applications for a handful of dif
 * nginx-sample -> nginx_buildpack / web_servers_cnb_beta
 * nodejs -> nodejs_buildpack
 * php -> php_buildpack
-* python-flask -> python_buildpack
+* python -> python_buildpack
+* python-flask -> python_buildpack (requires external access to download packages)
 * r -> r_buildpack
 * ruby-sinatra -> ruby_buildpack
 * static -> staticfile_buildpack

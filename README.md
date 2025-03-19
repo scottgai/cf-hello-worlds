@@ -15,7 +15,7 @@ This repository contains minimal "Hello World" applications for a handful of dif
 * nodejs -> nodejs_buildpack
 * php -> php_buildpack
 * python -> python_buildpack
-* python-flask -> python_buildpack (requires external access to download packages)
+* python-flask -> python_buildpack (requires internet access to download required packages)
 * r -> r_buildpack
 * ruby-sinatra -> ruby_buildpack
 * static -> staticfile_buildpack
@@ -43,6 +43,22 @@ Suppose the name of following default buildpacks are availalbe on foundation.
 ### java-spring-actuator
 Run `cf push --var app-domain=<app domain of the foundation>`
 
-### For all other folders, just do `cf push`
+### For all other folders, just do 
+`cf push`
 
-
+### Push dotnet-core in offline environment (no internet access)
+Refer to the Cloud Foundry [document](https://docs.cloudfoundry.org/buildpacks/dotnet-core/index.html#offline)
+* Install dotnet SDK. For example, install dotnet SDK v9 on Ubuntu
+  ```
+  sudo add-apt-repository ppa:dotnet/backports
+  sudo apt-get update &&   sudo apt-get install -y dotnet-sdk-9.0
+  ```
+* Publish the app
+  ```
+  cd dotnet-core
+  dotnet publish -f netcoreapp8.0
+* Push the app from publish folder
+  ```
+  cd bin/Release/netcoreapp8.0/publish
+  cf push test-dotnet  -p ./ -b dotnet_core_buildpack
+  ```

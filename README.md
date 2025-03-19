@@ -8,6 +8,7 @@ This repository contains minimal "Hello World" applications for a handful of dif
 
 * binary -> binary_buildpack
 * dotnet-core -> dotnet_core_buildpack
+* dotnet-core-offline -> dotnet_core_buildpack (in offline environments)
 * go-hello -> go_buildpack
 * java-see -> java_buildpack
 * java-spring-actuator -> java_buildpack
@@ -45,6 +46,13 @@ Run `cf push --var app-domain=<app domain of the foundation>`
 
 ### For all other folders, just do 
 `cf push`
+
+### Push dotnet-core-offline in offline environment (no internet access)
+```
+tar xfz dotnet-core-x86.tgz
+cd dotnet-core/bin/Release/netcoreapp8.0/publish
+cf push test-dotnet  -p ./ -b dotnet_core_buildpack
+```
 
 ### Push dotnet-core in offline environment (no internet access)
 Refer to the Cloud Foundry [document](https://docs.cloudfoundry.org/buildpacks/dotnet-core/index.html#offline)

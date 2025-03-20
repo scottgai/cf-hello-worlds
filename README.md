@@ -14,6 +14,7 @@ This repository contains minimal "Hello World" applications for a handful of dif
 * java-spring-actuator -> java_buildpack
 * nginx-sample -> nginx_buildpack / web_servers_cnb_beta
 * nodejs -> nodejs_buildpack
+* nodejs-offline -> nodejs_buildpack (in offline environments)
 * php -> php_buildpack
 * python -> python_buildpack
 * python-flask -> python_buildpack (requires internet access to download required packages)
@@ -70,3 +71,10 @@ Refer to the Cloud Foundry [document](https://docs.cloudfoundry.org/buildpacks/d
   cd bin/Release/netcoreapp8.0/publish
   cf push test-dotnet  -p ./ -b dotnet_core_buildpack
   ```
+
+### Push nodejs-offline in offline environment (no internet access)
+```
+tar xfz nodejs-x86.tgz
+cd nodejs
+cf push
+```
